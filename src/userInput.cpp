@@ -1,5 +1,4 @@
 #include <ncurses.h>
-#include "editor.cpp"
 
 class userInput {
     public:
@@ -19,9 +18,11 @@ class userInput {
                 case KEY_LEFT:
                     
                     break;
+                
+                    
             }
 
-            return 0;
+            return ch;
 
         }
 
