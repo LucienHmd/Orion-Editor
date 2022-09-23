@@ -1,12 +1,13 @@
 #include <ncurses.h>
-
+#include "userInput.cpp"
 
 class editor {
 
     private:
-        int cursorX;
-        int cursorY;
+        int cursorX = 1;
+        int cursorY = 1;
         WINDOW *window;
+        userInput * user = new userInput();
 
     public:
 
@@ -46,6 +47,19 @@ class editor {
         void cursorLeft() {
             cursorX = cursorX - 1;
             wmove(window,cursorY, cursorX);
+        }
+
+        void placeChar(char ch) {
+            waddch(window, ch);
+            cursorRight();
+        }
+
+        int getX() {
+            return cursorX;
+        }
+
+        int getY() {
+            return cursorY;
         }
 
 
